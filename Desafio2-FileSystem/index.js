@@ -1,4 +1,4 @@
-const Container = require("./Container")
+const Container = require("../Container")
 const products = new Container("./products.json")
 
 const obj1 = {
@@ -19,7 +19,7 @@ const obj3 = {
     thumbnail: "url"
 }
 
-const deleteAll = async() =>{
+const read = async() =>{
 
     await products.getAll().then(data => {
         console.log(data)
@@ -27,7 +27,7 @@ const deleteAll = async() =>{
 
 }
 
-const write = async() =>{
+const deleteAll = async() =>{
     await products.deleteAll()
     
 }

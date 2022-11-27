@@ -49,7 +49,7 @@ class Container {
     async getAll(){
         try{
             const getData = await fs.readFile(this.path, "utf-8")
-            return JSON.parse(read)
+            return JSON.parse(getData)
         }catch(error){
             console.log(error)
         }
