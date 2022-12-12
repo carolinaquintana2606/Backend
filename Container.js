@@ -10,7 +10,6 @@ class Container {
     try{
         const getData = await fs.readFile(this.path, "utf-8")
         const data = JSON.parse(getData)
-        //console.log(data)
         let id
         
         if ((data.length) === 0){
@@ -19,9 +18,7 @@ class Container {
             id = data.length + 1
         }
         let newProduct = {...obj, id}
-        //console.log(newProduct)
         data.push(newProduct)
-        //console.log(data)
         await fs.writeFile(this.path, JSON.stringify(data), "utf-8")
         
     }catch(error){

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío 4</title>
+</head>
+<body>
+    
+    <div>
+        <h2>Guardar Producto</h2>
+        <form action="/api/products" method="post" target="_blank">
+            <div class="form-example">
+                <label for="title">Nombre del Producto: </label>
+                <input type="text" name="title" id="title" required>
+            </div>
+            <div>
+                <label for="price">Precio del Producto: </label>
+                <input type="number" name="price" id="price" required>
+            </div>
+            <div>
+                <label for="thumbnail">URL de la imagen: </label>
+                <input type="url" name="thumbnail" id="thumbnail" required>
+            </div>
+            <div>
+                <input type="submit" value="Guardar Producto">
+            </div>
+        </form>
+    </div>
+    
+    
+</body>
+</html>
