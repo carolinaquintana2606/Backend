@@ -20,20 +20,6 @@ html(lang="en")
             div 
                 input(type="submit" value="Guardar Producto")
         
-        h2 Productos 
-        if (products.length > 0)
-            div
-                table
-                    tr 
-                        th Producto
-                        th Precio
-                        th Imagen
-                    for prod in list
-                    tr 
-                        td= prod.title
-                        td = prod.price 
-                        td = prod.thumbnail
-        else if (products.length == 0)
-                h3 No se encontraron productos
+        
 
 

@@ -1,5 +1,4 @@
-const express = require('express');
-
+const express = require("express");
 
 const app = express();
 const PORT = 8080;
@@ -13,16 +12,20 @@ app.use(express.urlencoded({extended: true}))
 app.set('view engine', 'hbs')
 app.set('views', './views')
 
-app.get("/productos", (req, res) =>{
-    products.getAll()
-    res.render('index', {products})
-})
 
-app.post("/productos", (req, res) =>{
+app.post('/', (req, res) =>{
     const prod = req.body;
     products.createProd(prod);
-    //res.redirect('/')
+    res.render('index')
+    res.redirect('/productos')
 })
+
+
+app.get('/productos', (req, res) =>{
+    products.getAll()
+    res.render('vista', {products})
+})
+
 
 
 const server = app.listen(PORT, () =>{
@@ -31,3 +34,4 @@ const server = app.listen(PORT, () =>{
 server.on('error', (error) =>{
     console.log('ERROR', error)
 })
+

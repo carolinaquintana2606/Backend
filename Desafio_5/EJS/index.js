@@ -12,15 +12,16 @@ app.use(express.urlencoded({extended: true}))
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
-app.get("/", (req, res) =>{
-    products.getAll()
-    res.render('index', products)
-})
-
-app.post("/productos", (req, res) =>{
+app.post("/", (req, res) =>{
     const prod = req.body;
     products.createProd(prod);
-    //res.redirect('/')
+    res.render('index')
+    res.redirect('/productos')
+})
+
+app.get("/productos", (req, res) =>{
+    products.getAll()
+    res.render('vista', products)
 })
 
 

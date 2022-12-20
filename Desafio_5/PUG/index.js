@@ -1,7 +1,7 @@
 const express = require('express')
 
 app = express();
-const PORT = 8070;
+const PORT = 3000;
 
 const Container = require('../Container.js')
 const products = new Container
@@ -12,16 +12,19 @@ app.use(express.urlencoded({extended: true}))
 app.set('views', './views')
 app.set('view engine', 'pug')
 
-app.get(app.get("/productos", (req, res) =>{
-    res.render('index', {products})
-})
-)
-
 app.post("/productos", (req, res) =>{
     const prod = req.body;
     products.createProd(prod);
-    //res.redirect('/')
+    res.render('index')
+    res.redirect('/')
 })
+
+
+app.get(app.get("/productos", (req, res) =>{
+    res.render('vista', {products})
+})
+)
+
 
 
 const server = app.listen(PORT, () =>{
