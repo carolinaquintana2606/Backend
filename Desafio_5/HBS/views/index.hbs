@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Desafío 5 - HBS</title>
+</head>
+<body>
+        <h2>Cargar Producto</h2>
+        <form action="/" method="post">
+            <div class="form-example">
+                <label for="title">Nombre del Producto: </label>
+                <input id="name" type="text" name="title" id="title" required>
+            </div>
+            <div>
+                <label for="price">Precio del Producto: </label>
+                <input id="price" type="number" name="price" id="price" required>
+            </div>
+            <div>
+                <label for="thumbnail">URL de la imagen: </label>
+                <input id="thumbnail" type="url" name="thumbnail" id="thumbnail" required>
+            </div>
+            <div>
+                <input type="submit" value="Guardar Producto">
+            </div>
+        </form>
+
+
+        {{#if(products.length > 0)}}
+        <div class="table-responsive">
+            <table class="table table-dark">
+                <tr> <th>Producto</th> <th>Precio</th> <th>Imagen</th></tr>
+                {{#each products}} 
+                <tr>
+                    <td>{{this.title}}</td>
+                    <td>{{this.price}}</td>
+                    <td> 
+                        <img src={{this.thumbnail}} alt="" width="50">
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+    {{#else if (products.length == 0) }}
+        <h3 class="alert alert-danger">No se encontraron productos</h1>
+    {{/if}}
+        
+</body>
+</html>
