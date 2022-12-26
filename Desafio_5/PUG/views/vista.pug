@@ -7,17 +7,18 @@ html(lang="en")
         title Productos
     body 
         h2 Productos 
-        if (products.length > 0)
-            div
+        
+            if (products.length > 0)
+             div
                 table
                     tr 
                         th Producto
                         th Precio
                         th Imagen
-                    for prod in list
+                    for prod in products
                     tr 
-                        td = products.title
-                        td = products.price 
-                        td = products.thumbnail
-        else if (products.length == 0)
+                        td = prod.title
+                        td = prod.price 
+                        td = prod.thumbnail
+            else if (products.length == 0)
                 h3 No se encontraron productos

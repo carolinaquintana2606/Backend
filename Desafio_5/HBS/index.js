@@ -23,7 +23,7 @@ app.post('/', (req, res) =>{
 
 app.get('/productos', (req, res) =>{
     products.getAll()
-    res.render('vista', {products})
+    res.render('vista', products)
 })
 
 

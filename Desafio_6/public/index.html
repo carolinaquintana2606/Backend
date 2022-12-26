@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Desafío 6</title>
+</head>
+<body>
+    
+
+    <div class="container mt-3">
+        <div class="jumbotron">
+            <h2>Carga de Productos</h2>
+            <br>
+
+            <form >
+               
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input id="name" class="form-control" type="text" name="title" required>
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input id="price" class="form-control" type="number" step="0.01" name="price" required>
+                </div>
+
+               
+                <div class="form-group">
+                    <label for="foto">Foto URL</label>
+                    <input id="thumbnail" class="form-control" type="url" name="thumbnail">
+                </div>
+
+                
+                <button id="btnAddProd" class="btn btn-success mt-3" type="submit">Cargar</button>
+            </form>
+            
+
+            <div id="productos"></div>
+
+        </div>
+
+
+        <div class="jumbotron">
+            <h2>Chat</h2>
+            <br>
+
+            <input type="text" id="inputUsername" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu email">
+
+            <form id="formPublicarMensaje" class="form-inline" autocomplete="off">
+                <div class="form-group">
+                    <input id="inputMensaje" type="text" class="form-control my-2 mr-2"
+                        placeholder="Ingresá un mensaje...">
+                    <button id="btnAddMsj" type="submit" class="btn btn-primary my-2">Enviar Mensaje</button>
+                </div>
+            </form>
+
+            <div >
+                <ul id="mensajes"></ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+    <script src="js/index.js"></script>
+</body>
+</html>
