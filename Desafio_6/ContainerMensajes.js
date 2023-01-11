@@ -3,13 +3,15 @@ const fs = require('fs').promises
 class ContainerMensajes {
     constructor(){
     
-        this.mensajes = []
+        //this.mensajes = []
     }
 
     async getAll(){
         try{
-            const getData = await fs.readFile('./mensajes.json', "utf-8")
-            return JSON.parse(getData)
+            const getData = await fs.readFile('./database/mensajes.json', "utf-8")
+            JSON.parse(getData)
+            //(this.mensajes).push(getData)
+            return(getData)
         }catch(error){
             console.log(error)
         }
@@ -18,10 +20,10 @@ class ContainerMensajes {
 
     async update(obj){
         try{
-            const getData = await fs.readFile('./mensajes.json', "utf-8")
-            const data = JSON.parse(getData)
-            data.push(obj)
-            await fs.writeFile('./mensajes.json', JSON.stringify(data), "utf-8")
+            const getData = await fs.readFile('./database/mensajes.json', "utf-8")
+            JSON.parse(getData)
+            getData.push(obj)
+            await fs.writeFile('./database/mensajes.json', JSON.stringify(getData), "utf-8")
             
         }catch(error){
             console.log(error)

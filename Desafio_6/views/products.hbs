@@ -1,0 +1,56 @@
+<section class='p-4 bg-secondary'>
+	<h2 class='text-primary'>Carga de Productos</h2>
+	<form id='addProduct'>
+		<div class='mb-3'>
+			<label class='form-label fw-bold' for='name'>Nombre</label>
+			<input id='name' class='form-control' type='text' name='name'/>
+		</div>
+		<div class='mb-3'>
+			<label class='form-label fw-bold' for='price'>Precio</label>
+			<input id='price' class='form-control' type='number' name='price'/>
+		</div>
+		<div class='mb-3'>
+			<label class='form-label fw-bold' for='img'>Foto URL</label>
+			<input id='thumbnail' class='form-control' type='url' name='thumbnail'/>
+		</div>
+		<div class='mb-3'>
+			<input class='btn btn-success' type='submit' value='Enviar' />
+		</div>
+	</form>
+</section>
+
+
+<section class='p-4 bg-secondary'>
+	<h2 class='text-primary'>Lista de Productos</h2>
+	{{#if products}}
+		<table class='table'>
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Precio</th>
+					<th>Foto</th>
+				</tr>
+			</thead>
+			<tbody id='ListProducts'></tbody>
+		</table>
+	{{else}}
+		<h2 class='bg-light p-4 text-danger'>No se encontraron productos</h2>
+	{{/if}}
+</section>
+
+
+
+
+<section class='p-4 bg-secondary mt-4'>
+	<h2 class='text-primary mb-4'>Centro de Mensajes</h2>
+	
+	<form id='sendMsj' class='form-inline'>
+        <input class='form-control col-6' type='mail' id='username' placeholder='Ingresá tu e-mail'/>
+		<input id='message' class='form-control mb-3' type='text' name='message' placeholder='Ingresá tu mensaje'/>
+		<button class='btn btn-primary' type='submit'>Enviar</button>
+	</form>
+
+
+    <div id='histChat' class='my-4'></div>
+
+</section>
