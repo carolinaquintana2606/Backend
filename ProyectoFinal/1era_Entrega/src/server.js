@@ -4,11 +4,9 @@ const express = require('express')
 const productosRouter = require('./routes/productsRouter')
 const carritosRouter = require('./routes/cartRouter')
 
-// instancio servidor y persistencia
+
 const app = express()
 
-
-// configuro el servidor
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))

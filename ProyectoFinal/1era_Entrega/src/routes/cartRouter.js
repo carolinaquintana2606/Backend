@@ -9,8 +9,8 @@ const Cart = new ContainerCart ("../db/dbCart.json")
 const ContainerProducts = require('../containers/ContainerProducts')
 const Products = new ContainerProducts("../db/dbProducts.json")
 
+//metodos
 cartRouter.post("/", async (req, res) => {
-    //const cart = req.body;
     const newCart = await Cart.createCart();
     res.send(newCart);
 })

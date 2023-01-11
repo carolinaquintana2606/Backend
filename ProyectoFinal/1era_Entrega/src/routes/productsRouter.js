@@ -6,6 +6,7 @@ const productsRouter = new Router;
 const ContainerProducts = require('../containers/ContainerProducts')
 const Products = new ContainerProducts('../db/dbProducts.json')
 
+//acceso solo administradores
 function errorAdmin(path, method){
     const error = {
         error: -1,
