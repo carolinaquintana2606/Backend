@@ -26,24 +26,24 @@ app.set('view engine', 'hbs');
 app.set('views', '../public/views');
 
 //establecer conexion con el cliente
-io.on('connection', socket=>{
+io.on('connection', async socket=>{
 
-    io.sockets.emit('productos', products.getAll());
-    io.sockets.emit('mensajes', mensajes.getAll());
+    io.sockets.emit('productos', await products.getAll());
+    io.sockets.emit('mensajes', await mensajes.getAll());
 
     //eschuco msj del cliente
-    socket.on('new-product', newProduct=>{
+    socket.on('new-product', async newProduct=>{
         products.createProd(newProduct)
-        const getAllProducts = products.getAll()
+        const  getAllProducts = await products.getAll()
         io.sockets.emit('productos', getAllProducts)
 
     })
 
 
 
-    socket.on('new-message', newMessage =>{
+    socket.on('new-message', async newMessage =>{
         mensajes.update(newMessage)
-        const getAllMsj = mensajes.getAll()
+        const getAllMsj = await mensajes.getAll()
         io.sockets.emit('mensajes', getAllMsj)
     })
 })
