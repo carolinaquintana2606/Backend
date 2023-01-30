@@ -1,0 +1,364 @@
+-----CREAR BASE DE DATOS-----
+use ecommerce
+'switched to db ecommerce'
+
+
+-----CREAR COLECCIONES-----
+db.createCollection("mensajes")
+{ ok: 1 }
+
+db.createCollection("productos")
+{ ok: 1 }
+
+
+-----CARGA DE DATOS-----
+db.productos.insertMany([
+{"id": 1, "title":"pepsi", "price":120, "thumbnail":"http://d3ugyf2ht6aenh.cloudfront.net/stores/001/611/627/products/2250-reg-011-3cb725a6ff8ac7cebd16179128135632-640-0.png"}, 
+{"id": 2, "title": "coca cola", "price": 580, "thumbnail": "https://ardiaprod.vtexassets.com/arquivos/ids/228484/Gaseosa-CocaCola-Sabor-Original-15-Lts-_2.jpg?v=637959904176070000"}, 
+{"id": 3, "title": "sevenUp", "price": 900, "thumbnail": "https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3080039_f.jpg"},
+{"id": 4, "title": "sprite", "price": 1700, "thumbnail": "https://jumboargentina.vtexassets.com/arquivos/ids/717099/Gaseosa-Sprite-Lima-lim-n-2-25-Lt-2-248213.jpg?v=637980754000900000"}, 
+{"id": 5, "title": "mirinda", "price": 2300, "thumbnail": "https://www.cdparque.com/img/sections/productos/mirinda.png"}, 
+{"id": 6, "title": "fanta", "price": 2860, "thumbnail": "https://ardiaprod.vtexassets.com/arquivos/ids/228481/Gaseosa-Fanta-naranja-15-Lts-_1.jpg?v=637959904131930000"}, 
+{"id": 7, "title": "paso de los toros", "price": 3350, "thumbnail": "https://cdn11.bigcommerce.com/s-3stx4pub31/images/stencil/1280x1280/products/962/2696/unnamed__06461.1656358317.jpg?c=2"},
+{"id": 8, "title": "schweppes", "price": 4320, "thumbnail": "https://carrefourar.vtexassets.com/arquivos/ids/254377/7790895010095_02.jpg?v=637970559055230000"}, 
+{"id": 9, "title": "H2oh!", "price": 4990, "thumbnail": "https://masonlineprod.vtexassets.com/arquivos/ids/235289-800-auto?v=637860986878830000&width=800&height=auto&aspect=true"}, 
+{"id": 10, "title": "levite", "price": 950, "thumbnail": "https://masonlineprod.vtexassets.com/arquivos/ids/260542-800-auto?v=638016394324530000&width=800&height=auto&aspect=true"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("63d7f799074364f69ee954ca"),
+    '1': ObjectId("63d7f799074364f69ee954cb"),
+    '2': ObjectId("63d7f799074364f69ee954cc"),
+    '3': ObjectId("63d7f799074364f69ee954cd"),
+    '4': ObjectId("63d7f799074364f69ee954ce"),
+    '5': ObjectId("63d7f799074364f69ee954cf"),
+    '6': ObjectId("63d7f799074364f69ee954d0"),
+    '7': ObjectId("63d7f799074364f69ee954d1"),
+    '8': ObjectId("63d7f799074364f69ee954d2"),
+    '9': ObjectId("63d7f799074364f69ee954d3")
+  }
+}
+
+
+
+db.mensajes.insertMany(
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.mensajes.insertMany([{"user: "juan@mail.com", "message": "Hola como estan?"},
+{"user: "carolina@mail.com", "message": "Hola a todos!!!!"},
+{"user: "bartolo@mail.com", "message": "Que cuentan??"},
+{"user: "lucy@mail.com", "message": "Yo de vacaciones!! Ustedes?"},
+{"user: "lucas@mail.com", "message": "Que bueno Lucy! Yo estudiando :("},
+{"user: "juan@mail.com", "message": "Me alegro mucho! Yo trabajando"},
+{"user: "carolina@mail.com", "message": "Cuando te tomas vacaciones juan?"},
+{"user: "bartolo@mail.com", "message": "Yo trabajando tambien..."},
+{"user: "juan@mail.com", "message": "En febrero! Vos?"},
+{"user: "carolina@mail.com", "message": "La semana que viene :D"}])
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.mensajes.insertMany([{"user": "juan@mail.com", "message": "Hola como estan?"},
+{"user": "carolina@mail.com", "message": "Hola a todos!!!!"},
+{"user": "bartolo@mail.com", "message": "Que cuentan??"},
+{"user": "lucy@mail.com", "message": "Yo de vacaciones!! Ustedes?"},
+{"user": "lucas@mail.com", "message": "Que bueno Lucy! Yo estudiando :("},
+{"user": "juan@mail.com", "message": "Me alegro mucho! Yo trabajando"},
+{"user": "carolina@mail.com", "message": "Cuando te tomas vacaciones juan?"},
+{"user": "bartolo@mail.com", "message": "Yo trabajando tambien..."},
+{"user": "juan@mail.com", "message": "En febrero! Vos?"},
+{"user": "carolina@mail.com", "message": "La semana que viene :D"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("63d7f9a3074364f69ee954d4"),
+    '1': ObjectId("63d7f9a3074364f69ee954d5"),
+    '2': ObjectId("63d7f9a3074364f69ee954d6"),
+    '3': ObjectId("63d7f9a3074364f69ee954d7"),
+    '4': ObjectId("63d7f9a3074364f69ee954d8"),
+    '5': ObjectId("63d7f9a3074364f69ee954d9"),
+    '6': ObjectId("63d7f9a3074364f69ee954da"),
+    '7': ObjectId("63d7f9a3074364f69ee954db"),
+    '8': ObjectId("63d7f9a3074364f69ee954dc"),
+    '9': ObjectId("63d7f9a3074364f69ee954dd")
+  }
+}
+
+
+-----LISTAR COLECCIONES-----
+db.productos.find()
+{
+  _id: ObjectId("63d7f799074364f69ee954ca"),
+  id: 1,
+  title: 'pepsi',
+  price: 120,
+  thumbnail: 'http://d3ugyf2ht6aenh.cloudfront.net/stores/001/611/627/products/2250-reg-011-3cb725a6ff8ac7cebd16179128135632-640-0.png'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954cb"),
+  id: 2,
+  title: 'coca cola',
+  price: 580,
+  thumbnail: 'https://ardiaprod.vtexassets.com/arquivos/ids/228484/Gaseosa-CocaCola-Sabor-Original-15-Lts-_2.jpg?v=637959904176070000'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954cc"),
+  id: 3,
+  title: 'sevenUp',
+  price: 900,
+  thumbnail: 'https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3080039_f.jpg'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954cd"),
+  id: 4,
+  title: 'sprite',
+  price: 1700,
+  thumbnail: 'https://jumboargentina.vtexassets.com/arquivos/ids/717099/Gaseosa-Sprite-Lima-lim-n-2-25-Lt-2-248213.jpg?v=637980754000900000'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954ce"),
+  id: 5,
+  title: 'mirinda',
+  price: 2300,
+  thumbnail: 'https://www.cdparque.com/img/sections/productos/mirinda.png'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954cf"),
+  id: 6,
+  title: 'fanta',
+  price: 2860,
+  thumbnail: 'https://ardiaprod.vtexassets.com/arquivos/ids/228481/Gaseosa-Fanta-naranja-15-Lts-_1.jpg?v=637959904131930000'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954d0"),
+  id: 7,
+  title: 'paso de los toros',
+  price: 3350,
+  thumbnail: 'https://cdn11.bigcommerce.com/s-3stx4pub31/images/stencil/1280x1280/products/962/2696/unnamed__06461.1656358317.jpg?c=2'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954d1"),
+  id: 8,
+  title: 'schweppes',
+  price: 4320,
+  thumbnail: 'https://carrefourar.vtexassets.com/arquivos/ids/254377/7790895010095_02.jpg?v=637970559055230000'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954d2"),
+  id: 9,
+  title: 'H2oh!',
+  price: 4990,
+  thumbnail: 'https://masonlineprod.vtexassets.com/arquivos/ids/235289-800-auto?v=637860986878830000&width=800&height=auto&aspect=true'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954d3"),
+  id: 10,
+  title: 'levite',
+  price: 950,
+  thumbnail: 'https://masonlineprod.vtexassets.com/arquivos/ids/260542-800-auto?v=638016394324530000&width=800&height=auto&aspect=true'
+}
+
+
+db.mensajes.find()
+{
+  _id: ObjectId("63d7f9a3074364f69ee954d4"),
+  user: 'juan@mail.com',
+  message: 'Hola como estan?'
+}
+{
+  _id: ObjectId("63d7f9a3074364f69ee954d5"),
+  user: 'carolina@mail.com',
+  message: 'Hola a todos!!!!'
+}
+{
+  _id: ObjectId("63d7f9a3074364f69ee954d6"),
+  user: 'bartolo@mail.com',
+  message: 'Que cuentan??'
+}
+{
+  _id: ObjectId("63d7f9a3074364f69ee954d7"),
+  user: 'lucy@mail.com',
+  message: 'Yo de vacaciones!! Ustedes?'
+}
+{
+  _id: ObjectId("63d7f9a3074364f69ee954d8"),
+  user: 'lucas@mail.com',
+  message: 'Que bueno Lucy! Yo estudiando :('
+}
+{
+  _id: ObjectId("63d7f9a3074364f69ee954d9"),
+  user: 'juan@mail.com',
+  message: 'Me alegro mucho! Yo trabajando'
+}
+{
+  _id: ObjectId("63d7f9a3074364f69ee954da"),
+  user: 'carolina@mail.com',
+  message: 'Cuando te tomas vacaciones juan?'
+}
+{
+  _id: ObjectId("63d7f9a3074364f69ee954db"),
+  user: 'bartolo@mail.com',
+  message: 'Yo trabajando tambien...'
+}
+{
+  _id: ObjectId("63d7f9a3074364f69ee954dc"),
+  user: 'juan@mail.com',
+  message: 'En febrero! Vos?'
+}
+{
+  _id: ObjectId("63d7f9a3074364f69ee954dd"),
+  user: 'carolina@mail.com',
+  message: 'La semana que viene :D'
+}
+
+----CANTIDAD DE DOCUMENTOS ALMACENADOS----
+db.productos.countDocuments()
+10
+db.mensajes.countDocuments()
+10
+
+
+----AGREGAR UN PRODUCTO----
+db.productos.insertOne({"id": 11, "title": "aquarius", "price": 1100, "thumbnail": "https://jumboargentina.vtexassets.com/arquivos/ids/580694-800-auto?v=637219994377830000&width=800&height=auto&aspect=true"})
+{
+  acknowledged: true,
+  insertedId: ObjectId("63d7fcd8074364f69ee954de")
+
+
+----LISTAR PRODUCTOS PRECIO<1000----
+db.productos.find({price:{$lt:1000}})
+{
+  _id: ObjectId("63d7f799074364f69ee954ca"),
+  id: 1,
+  title: 'pepsi',
+  price: 120,
+  thumbnail: 'http://d3ugyf2ht6aenh.cloudfront.net/stores/001/611/627/products/2250-reg-011-3cb725a6ff8ac7cebd16179128135632-640-0.png'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954cb"),
+  id: 2,
+  title: 'coca cola',
+  price: 580,
+  thumbnail: 'https://ardiaprod.vtexassets.com/arquivos/ids/228484/Gaseosa-CocaCola-Sabor-Original-15-Lts-_2.jpg?v=637959904176070000'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954cc"),
+  id: 3,
+  title: 'sevenUp',
+  price: 900,
+  thumbnail: 'https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3080039_f.jpg'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954d3"),
+  id: 10,
+  title: 'levite',
+  price: 950,
+  thumbnail: 'https://masonlineprod.vtexassets.com/arquivos/ids/260542-800-auto?v=638016394324530000&width=800&height=auto&aspect=true'
+}
+
+
+
+
+----LISTAR PRODUCTOS PRECIO ENTRE 1000 Y 3000----
+db.productos.find({$and: [{"price": {$gt:1000}}, {"price": {$lt:3000}}]})
+{
+  _id: ObjectId("63d7f799074364f69ee954cd"),
+  id: 4,
+  title: 'sprite',
+  price: 1700,
+  thumbnail: 'https://jumboargentina.vtexassets.com/arquivos/ids/717099/Gaseosa-Sprite-Lima-lim-n-2-25-Lt-2-248213.jpg?v=637980754000900000'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954ce"),
+  id: 5,
+  title: 'mirinda',
+  price: 2300,
+  thumbnail: 'https://www.cdparque.com/img/sections/productos/mirinda.png'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954cf"),
+  id: 6,
+  title: 'fanta',
+  price: 2860,
+  thumbnail: 'https://ardiaprod.vtexassets.com/arquivos/ids/228481/Gaseosa-Fanta-naranja-15-Lts-_1.jpg?v=637959904131930000'
+}
+{
+  _id: ObjectId("63d7fcd8074364f69ee954de"),
+  id: 11,
+  title: 'aquarius',
+  price: 1100,
+  thumbnail: 'https://jumboargentina.vtexassets.com/arquivos/ids/580694-800-auto?v=637219994377830000&width=800&height=auto&aspect=true'
+}
+
+
+
+----LISTAR PRODUCTOS PRECIO>3000----
+db.productos.find({"price": {$gt:3000}})
+{
+  _id: ObjectId("63d7f799074364f69ee954d0"),
+  id: 7,
+  title: 'paso de los toros',
+  price: 3350,
+  thumbnail: 'https://cdn11.bigcommerce.com/s-3stx4pub31/images/stencil/1280x1280/products/962/2696/unnamed__06461.1656358317.jpg?c=2'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954d1"),
+  id: 8,
+  title: 'schweppes',
+  price: 4320,
+  thumbnail: 'https://carrefourar.vtexassets.com/arquivos/ids/254377/7790895010095_02.jpg?v=637970559055230000'
+}
+{
+  _id: ObjectId("63d7f799074364f69ee954d2"),
+  id: 9,
+  title: 'H2oh!',
+  price: 4990,
+  thumbnail: 'https://masonlineprod.vtexassets.com/arquivos/ids/235289-800-auto?v=637860986878830000&width=800&height=auto&aspect=true'
+}
+
+
+
+----LISTAR 3er PRODUCTO MAS BARATO----
+db.productos.find().skip(2).limit(1).sort({price:1})
+{
+  _id: ObjectId("63d7f799074364f69ee954cc"),
+  id: 3,
+  title: 'sevenUp',
+  price: 900,
+  thumbnail: 'https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3080039_f.jpg'
+}
+
+
+
+----AGREGAR STOCK A TODOS LOS PRODUCTOS----
+db.productos.updateMany({}, {$set: {stock:100}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 11,
+  modifiedCount: 11,
+  upsertedCount: 0
+}
+
+
+----ACTUALIZAR STOCK PRODUCTOS PRECIO>4000----
+db.productos.updateMany({price: {$gt:4000}}, {$set: {stock: 0}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+
+
+----BORRAR PRODUCTOS PRECIO <1000----
+db.productos.deleteMany({"price": {$lt:1000}})
+{
+  acknowledged: true,
+  deletedCount: 4
+}
+
+
+
+----CREAR USUARIO LECTOR----
+use admin
+'switched to db admin'
+db.createUser({user: "pepe", pwd: "asd456", roles: [{role: "read", db: "ecommerce"}]})
+{ ok: 1 }
