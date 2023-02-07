@@ -3,7 +3,7 @@ const express = require('express')
 const { Router } = express;
 const productsRouter = new Router;
 
-import { productosDao } from '../DAOs/index.js'
+import { productosDao as Products } from '../DAOs/index.js'
 
 //const ContainerProducts = require('../containers/ContainerProducts')
 //const Products = new productosDao
@@ -34,7 +34,7 @@ function adminsOnly(req, res, next){
 
 //métodos
 productsRouter.get("/", async (req, res) =>{
-    const getAllProducts = await productosDao.
+    const getAllProducts = await Products.getAll()
     
     res.send(getAllProducts)
 })
@@ -47,7 +47,7 @@ productsRouter.get("/:id", async (req, res) =>{
 
 productsRouter.post("/", adminsOnly, async (req, res) =>{
     const prod = req.body;
-    const newProd = await Products.createProd(prod);
+    const newProd = await Products.save(prod);
     res.send(newProd);
 })
 

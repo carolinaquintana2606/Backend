@@ -1,3 +1,6 @@
+import {mongoSchemaProd, mongoSchemaCart } from '../createSchema.js'
+import config from '../config.js'
+
 let productosDao
 let carritosDao
 
@@ -6,8 +9,8 @@ switch ('mongo') {
         const { default: ProdDaoArchivo } = await import('./products/ProdDaoArchivo.js')
         const { default: CartDaoArchivo } = await import('./cart/CartDaoArchivo.js')
 
-        productosDao = new ProdDaoArchivo()
-        carritosDao = new CartDaoArchivo()
+        productosDao = new ProdDaoArchivo('../db/dbProducts.json')
+        carritosDao = new CartDaoArchivo('../db/dbCart.json')
 
         break
 
@@ -15,8 +18,9 @@ switch ('mongo') {
         const { default: ProdDaoFirebase } = await import('./products/ProdDaoFirebase.js')
         const { default: CartDaoFirebase } = await import('./cart/CartDaoFirebase.js')
 
-        productosDao = new ProdDaoFirebase()
-        carritosDao = new CartDaoFirebase()
+        productosDao = new ProdDaoFirebase('products')
+        carritosDao = new CartDaoFirebase('cart')
+        
 
         break
 
@@ -24,16 +28,16 @@ switch ('mongo') {
         const { default: ProdDaoMongo } = await import('./products/ProdDaoMongo.js')
         const { default: CartDaoMongo } = await import('./cart/CartDaoMongo.js')
 
-        productosDao = new ProdDaoMongo()
-        carritosDao = new CartDaoMongo()
+        productosDao = new ProdDaoMongo('products', mongoSchemaProd)
+        carritosDao = new CartDaoMongo('cart', mongoSchemaCart)
 
         break
     case 'mysql':
         const { default: ProdDaoSQL } = await import('./products/ProdDaoSQL.js')
         const { default: CartDaoSQL } = await import('./cart/CartDaoSQL.js')
 
-        productosDao = new ProdDaoSQL()
-        carritosDao = new CartDaoSQL()
+        productosDao = new ProdDaoSQL(config.mysql, 'products')
+        carritosDao = new CartDaoSQL(config.mysql, 'cart')
 
         break
 
