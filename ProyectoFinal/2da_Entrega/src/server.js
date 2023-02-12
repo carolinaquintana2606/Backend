@@ -1,8 +1,10 @@
-const express = require('express')
+//const express = require('express')
+import express from 'express'
 
-
-const productosRouter = require('./routes/productsRouter')
-const carritosRouter = require('./routes/cartRouter')
+import productosRouter from './routes/productsRouter.js'
+import carritosRouter from './routes/cartRouter.js'
+//const productosRouter = require('./routes/productsRouter')
+//const carritosRouter = require('./routes/cartRouter')
 
 
 const app = express()
