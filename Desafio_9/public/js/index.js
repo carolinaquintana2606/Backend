@@ -1,6 +1,6 @@
 const socket = io.connect();
 
-//------------------------------------------------------------------------------------
+
 
 const formAgregarProducto = document.getElementById('formAgregarProducto')
 formAgregarProducto.addEventListener('submit', e => {
@@ -21,7 +21,7 @@ socket.on('productos', productos => {
 });
 
 function makeHtmlTable(productos) {
-    return fetch('plantillas/tabla-productos.hbs')
+    return fetch('views/productos.hbs')
         .then(respuesta => respuesta.text())
         .then(plantilla => {
             const template = Handlebars.compile(plantilla);
@@ -30,24 +30,27 @@ function makeHtmlTable(productos) {
         })
 }
 
-//-------------------------------------------------------------------------------------
 
-// MENSAJES
+//  DESNORMALIZACIÓN DE MENSAJES 
+// esquema autor
+const author = new schema.Entity('author', {idAtribute: 'email'});
 
-/* --------------------- DESNORMALIZACIÓN DE MENSAJES ---------------------------- */
-// Definimos un esquema de autor
+// esquema mensaje
+const text = new schema.Entity('text')
+
+// esquema posts
+const posts = new schema.Entity('posts', {
+    author: {author},
+    text: text
+})
 
 
-// Definimos un esquema de mensaje
 
-
-// Definimos un esquema de posts
-
-/* ----------------------------------------------------------------------------- */
 
 const inputUsername = document.getElementById('username')
 const inputMensaje = document.getElementById('inputMensaje')
 const btnEnviar = document.getElementById('btnEnviar')
+
 
 const formPublicarMensaje = document.getElementById('formPublicarMensaje')
 formPublicarMensaje.addEventListener('submit', e => {
@@ -70,8 +73,10 @@ formPublicarMensaje.addEventListener('submit', e => {
     inputMensaje.focus()
 })
 
+
 socket.on('mensajes', mensajesN => {
 
+    const mensajesD = denormalize(mensajesN.result, posts, mensajesN.entities);
     console.log(`Porcentaje de compresión ${porcentajeC}%`)
     document.getElementById('compresion-info').innerText = porcentajeC
 
@@ -79,6 +84,7 @@ socket.on('mensajes', mensajesN => {
     const html = makeHtmlList(mensajesD.mensajes)
     document.getElementById('mensajes').innerHTML = html;
 })
+
 
 function makeHtmlList(mensajes) {
     return mensajes.map(mensaje => {
@@ -93,12 +99,14 @@ function makeHtmlList(mensajes) {
     }).join(" ");
 }
 
+
 inputUsername.addEventListener('input', () => {
     const hayEmail = inputUsername.value.length
     const hayTexto = inputMensaje.value.length
     inputMensaje.disabled = !hayEmail
     btnEnviar.disabled = !hayEmail || !hayTexto
 })
+
 
 inputMensaje.addEventListener('input', () => {
     const hayTexto = inputMensaje.value.length
